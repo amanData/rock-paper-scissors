@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rock Paper Scissors</title>
+	<meta charset="UTF-8">
+</head>
+<body>
+
+<script type="text/javascript">
+	function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+	}
+
+	function computerPlay() {
+		let rock = 'Rock';
+		let paper = 'Paper';
+		let scissors = 'Scissors';
+		let rps = [rock, paper, scissors];
+		let rng = getRndInteger(0,2);
+		return(rps[rng]);
+	}
+
+	function playRound (playerSelection, computerSelection) {
+		playerSelection = playerSelection.toUpperCase();
+		computerSelection = computerSelection.toUpperCase();
+		if (playerSelection === computerSelection) {
+			return('Tie!');
+		}
+		else if (playerSelection === 'ROCK') {
+			if (computerSelection === 'PAPER') {
+				return('You lose! Paper beats Rock.');
+			}
+			else {return('You win! Rock beats Scissors.');};
+		}
+		else if (playerSelection === 'PAPER') {
+			if (computerSelection === 'SCISSORS') {
+				return('You lose! Scissors beats Paper.');
+			}
+			else {return('You win! Paper beats Rock.');}
+		}
+		else {
+			if (computerSelection === 'ROCK') {
+				return('You lose! Rock beats Scissors.');
+			}
+			else {
+				return('You win! Scissors beats Paper.');
+			}
+		}
+	}
+
+	function game() {
+		playRound(prompt('Rock, Paper or Scissors?'),computerPlay());
+	}
+
+
+</script>
+
+</body>
+</html>
